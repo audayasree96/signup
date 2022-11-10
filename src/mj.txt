@@ -1,0 +1,117 @@
+const previousValues={mobilenumber:"",name:"",password:"",email:""};
+	const [formval,setFormVal]=useState(previousValues);
+    const handleChange=(event)=>{
+		const{name ,value}=event.target;
+		setFormVal({...formval,[name]:value});
+    };
+    const handleSubmit=event=>{
+		event.preventDefault();
+		validate(formval);
+	};
+    const validate=(values)=>
+    {
+        var flag=0;
+        let regx=new RegExp('(^[A-Z]*[A-Z a-z 0-9]*[^A-z a-z 0-9]*[A-Z a-z 0-9]*[A-z a-z 0-9]*[A-Z]+[A-Z a-z 0-9]*[^A-z a-z 0-9]*[^A-z a-z 0-9]+[A-Z a-z 0-9]*[0-9]*[^A-Z a-z 0-9]*[A-Z a-z 0-9]*)$');
+        let regx2=new RegExp('^[A-Za-z]+\\s?[a-zA-Z]*$');
+        let regx3=new RegExp('^[6-9][0-9]{9}$');
+        let regx4=new RegExp('^[a-z 0-9]+@[a-z]+\.[a-z]{2,3}$');
+        if(regx.test(values.password))
+        {
+           
+            document.getElementById('pass').style.border="2px solid green";
+            //document.getElementById('pssl').innerHTML="";
+        }
+        else
+        {
+            document.getElementById('pass').style.border="2px solid red";
+            /*if(paswd.length()<8)
+            {
+                document.getElementById('passl').innerHTML="Password length should be greater than 8";
+              
+            }
+            else if(paswd.length()>32)
+            {
+                document.getElementById('pass1').innerHTML="Password length should be less than 32";
+               
+            }
+            else
+            {
+                document.getElementById('passl').innerHTML="Invalid password Format";
+            }*/
+            //document.getElementById('pssl').innerHTML="Invalid password Format";
+            flag=1;
+        }
+           
+        if(regx3.test(values.mobilenumber))
+        {
+            //console.log(num);
+            document.getElementById('num').style.border="2px solid green";
+            //document.getElementById('pnl').innerHTML="";
+        }
+        else
+        {
+            var num=values.mobilenumber;
+            //document.getElementById('num').style.border="2px solid red";
+           if(num.charAt(0)!=6 && num.charAt(0)!=9)
+            {
+                console.log(num.charAt(0));
+                document.getElementById('pnl').innerHTML.value="Phone number should start with 6 or 9";
+            }
+            //document.getElementById('pnl').innerHTML="The Length of the phone number should be 10";
+            flag=1;
+        }
+        if(regx2.test(values.name))
+        {
+            //console.log(nam);
+            document.getElementById('name1').style.border="2px solid green";
+            //document.getElementById('nml').innerHTML="";
+        }
+        else
+        {
+            document.getElementById('name1').style.border="2px solid red";
+            /*if(nam.isEmpty())
+            {
+                document.getElementById('nml').innerHTML="Name should not be Empty";
+            }
+            else
+            {
+                document.getElementById('nml').innerHTML="only one space is allowed between the name";
+            
+            }*/
+            //document.getElementById('nml').innerHTML="Invalid Name Format";
+            flag=1;
+        }
+        if(regx4.test(values.email))
+        {
+            //console.log(mai);
+            document.getElementById('mail').style.border="2px solid green";
+            //document.getElementById('mal').innerHTML="";
+        }
+        else
+        {
+            document.getElementById('mail').style.border="2px solid red";
+            //document.getElementById('mal').innerHTML="Invalid Mail Format";
+            flag=1;
+        }
+        if(flag==0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function eye()
+    {
+        var passeye=document.getElementById("pass").type;
+        if(passeye=="password")
+        {
+            document.getElementById("pass").type="text";
+            console.log("Hi 123");
+        }
+        else
+        {
+            document.getElementById("pass").type="password";
+        }
+    }

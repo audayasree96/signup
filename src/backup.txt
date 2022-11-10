@@ -1,0 +1,69 @@
+if(mobilenumber.length==0){                      //Validation for input-boreder to change its colour
+			console.log("Mobile number is required");
+			document.getElementById('num').style.border="2px solid red";
+			
+			
+		}
+		else if(!(reg_mobile.test(mobilenumber)))
+		{
+			console.log("Enter correct  phone number.");
+			document.getElementById('num').style.border="2px solid red";
+			
+			
+		}
+		else if(reg_mobile.test(mobilenumber))
+		{
+			console.log("Valid Mobile Number");
+			document.getElementById('num').style.border="2px solid green";
+		
+			
+		}
+		if(username.length==0){
+			console.log("User name should not be Empty");
+			document.getElementById('name1').style.border="2px solid red";
+			
+		}
+		else if(!(reg_name.test(username)))
+		{
+			console.log("Enter name with single space.");
+			document.getElementById('name1').style.border="2px solid red";
+		
+		}
+		else if((reg_name.test(username)))
+		{
+			console.log("Valid name");
+			document.getElementById('name1').style.border="2px solid green";
+		}
+
+		if(email.length==0){
+			console.log("Email is required");
+			document.getElementById('mail').style.border="2px solid red";
+			
+		}
+		else if(!(reg_mail.test(email)))
+		{
+			console.log("enter valid email");
+			document.getElementById('mail').style.border="2px solid red";
+			
+		}
+		else if((reg_mail.test(email)))
+		{
+			console.log(" valid email");
+			document.getElementById('mail').style.border="2px solid green";
+		}
+		if(password.length==0){
+			console.log("Password is required");
+			document.getElementById('pass').style.border="2px solid red";
+		
+		}
+		else if(!(reg_pass.test(password)))
+		{
+			console.log("Invalid Password");
+			document.getElementById('pass').style.border="2px solid red";
+		
+		}
+		else if((reg_pass.test(password)))
+		{
+			console.log("valid Password");
+			document.getElementById('pass').style.border="2px solid green";
+		}
